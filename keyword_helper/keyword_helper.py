@@ -3,7 +3,6 @@ author: Izan Majeed
 email: izanmajeed03@gmail.com
 '''
 
-
 from tkinter import *
 
 def click():
@@ -20,11 +19,35 @@ def close_window():
 	window.destroy()
 	exit()
 
-
 window = Tk()
 window.title("Izan")
 window.configure(bg="#ff595e")
 window.geometry("320x568")
+
+heading = Label(window, text=f"{chr(8227)} Search for Python Built-Ins", fg="#5e5656", bg="#ff595e", font="Times 17 bold")
+heading.grid(row=0, column=0,sticky=W, pady=3)
+
+query = Label(window, text="\nKeyword:", fg="#222831", bg="#ff595e", font="Times 16 bold")
+query.grid(row=1, column=0, sticky=W, pady=2)
+
+user_input = Entry(window, bg="#f7fff7", fg="#69306d", font="Times 16", width=28)
+user_input.grid(row=2, column=0, sticky=W)
+
+Button(window, text="Search", bg='#59cd90', fg="#ffffff", relief='flat', font="Times 12 bold", width=36, command=click).grid(row=3, column=0, sticky=W, pady=2)
+
+result_label = Label(window, text="\nDefinition:", bg="#ff595e", fg="#222831", font="Times 16 bold")
+result_label.grid(row=4, column=0, sticky=W, pady=3)
+
+result = Text(window, width=31, height=10, wrap=WORD, bg="#f7fff7", font="Times 14", fg="#000000")
+result.grid(row=5, column=0, sticky=W, pady=3)
+
+space_label = Label(window, text="\n\n\n", bg="#ff595e")
+space_label.grid(row=6, column=0, sticky=W, pady=3)
+
+Button(window, text="Exit", width=36, bg='#ffc425', fg="#ffffff", relief='flat', font="Times 12 bold", command=close_window).grid(row=7, column=0, sticky=W, pady=3)
+
+
+window.mainloop()
 
 
 dictonary = {
@@ -267,29 +290,3 @@ dictonary = {
  '<<': 'Shift left by pushing zeros in from the right and let the leftmost bits fall off',
  '>>': 'Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off',
  }
-
-
-heading = Label(window, text=f"{chr(8227)} Search for Python Built-Ins", fg="#5e5656", bg="#ff595e", font="Times 17 bold")
-heading.grid(row=0, column=0,sticky=W, pady=3)
-
-query = Label(window, text="\nKeyword:", fg="#222831", bg="#ff595e", font="Times 16 bold")
-query.grid(row=1, column=0, sticky=W, pady=2)
-
-user_input = Entry(window, bg="#f7fff7", fg="#69306d", font="Times 16", width=28)
-user_input.grid(row=2, column=0, sticky=W)
-
-Button(window, text="Search", bg='#59cd90', fg="#ffffff", relief='flat', font="Times 12 bold", width=36, command=click).grid(row=3, column=0, sticky=W, pady=2)
-
-result_label = Label(window, text="\nDefinition:", bg="#ff595e", fg="#222831", font="Times 16 bold")
-result_label.grid(row=4, column=0, sticky=W, pady=3)
-
-result = Text(window, width=31, height=10, wrap=WORD, bg="#f7fff7", font="Times 14", fg="#000000")
-result.grid(row=5, column=0, sticky=W, pady=3)
-
-space_label = Label(window, text="\n\n\n", bg="#ff595e")
-space_label.grid(row=6, column=0, sticky=W, pady=3)
-
-Button(window, text="Exit", width=36, bg='#ffc425', fg="#ffffff", relief='flat', font="Times 12 bold", command=close_window).grid(row=7, column=0, sticky=W, pady=3)
-
-window.mainloop()
-
